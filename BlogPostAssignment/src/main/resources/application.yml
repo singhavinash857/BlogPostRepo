@@ -1,0 +1,30 @@
+spring:
+  data:
+    rest:
+      basePath: /home
+      
+
+##################### Project assignment ########################
+projectAssignment: Project Assignment Info
+     
+####################### password reset subject ###################
+password:
+  reset:
+    subject: "Password Reset Request"
+    url: resetPassword?token=$tokenValue
+  
+ 
+service:
+  mail:
+    host: smtp.gmail.com
+    username: -give your mail id-
+    password: -give your mail id password-
+    port: 857
+    properties:
+      mail:
+        smtp:
+          starttls:
+            enable: true
+            
+token:
+  secret: "secretkeytoken"
