@@ -2,8 +2,6 @@ package com.transformedge.apps.controller;
 
 import java.security.Principal;
 
-import javax.servlet.http.HttpSession;
-
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -45,7 +43,7 @@ public class UserController {
 
 	@GetMapping({"/welcome_page"})
 	public String welcomePageAfterLogin(Principal principle) {
-		return "homePage/MainWelcomePage";
+		return "blogPostPage/MainRegisterPage";
 	}
 	
 	@GetMapping(value="/403")
@@ -64,33 +62,4 @@ public class UserController {
 		}
 		return model;
 	}
-	
-	
-	/*@PostMapping({"/logoutSuccessful"})
-	public String welcomePageAfterLogout(Principal principal,HttpServletRequest request, HttpServletResponse response) {
-		System.out.println("principal logout ::"+principal.getName());
-		Authentication auth = SecurityContextHolder.getContext().getAuthentication();  
-		if (auth != null){ 
-			new SecurityContextLogoutHandler().logout(request, response, auth);  
-		}  
-		return "redirect:/login";
-	}*/
-	
-	/*@GetMapping("/registration")
-	public String registration(Model model) {
-		model.addAttribute("userForm", new User());
-		return "registration";
-	}
-
-	@PostMapping("/registration")
-	public String registration(@ModelAttribute("userForm") User userForm, BindingResult bindingResult) {
-		userValidator.validate(userForm, bindingResult);
-		if (bindingResult.hasErrors()) {
-			return "registration";
-		}
-		userService.save(userForm);
-		securityService.autoLogin(userForm.getUsername(), userForm.getPasswordConfirm());
-		return "redirect:/welcome";
-	}*/
-
 }

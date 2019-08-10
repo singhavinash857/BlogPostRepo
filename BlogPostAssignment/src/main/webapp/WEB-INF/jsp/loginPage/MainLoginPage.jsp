@@ -213,13 +213,14 @@ input:focus {
 						<div class="form-group">
 							<button value="Login" id="loginbtn"
 								class="btn float-right login_btn"><i class="fas fa-sign-in-alt"></i></button>
-						
-						<!-- 	<input type="submit" value="Login" id="loginbtn"
-								class="btn float-right login_btn"> -->
-								
 						</div>
 					</form>
-				</div>
+					
+					<a href="/home/redirect_controller/registerPage/MainRegisterPage">Register
+									</a>
+                      <!--   <button type="button" data-toggle="modal" data-target="#myModal"
+							style="background-color: rgba(0, 0, 0, 0.4) !important; border-color: rgba(0, 0, 0, 0.4) !important; color: rgba(30, 144, 255);">Register</button>					
+			 -->	</div>
 				<div class="card-footer">
 					<div class="d-flex justify-content-center">
 						<button type="button" data-toggle="modal" data-target="#myModal"

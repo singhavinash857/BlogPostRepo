@@ -16,7 +16,6 @@ import lombok.Data;
 @Entity
 @Table(name="password_reset_tokens")
 public class PasswordResetTokenEnity implements Serializable{
-	
 	private static final long serialVersionUID = 1130420740956761854L;
 	
 	@Id

@@ -15,10 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.transformedge.apps.appconfiguration.Translator;
-import com.transformedge.apps.enums.RequestOperationName;
-import com.transformedge.apps.enums.RequestOperationStatus;
 import com.transformedge.apps.exceptions.ErrorFormInfo;
-import com.transformedge.apps.model.OperationStatusModel;
 import com.transformedge.apps.model.PasswordResetModel;
 import com.transformedge.apps.model.PasswordResetRequestModel;
 import com.transformedge.apps.service.UserService;
@@ -50,21 +47,16 @@ public class PasswordResetController {
 	@PostMapping("/password_reset")
 	public ResponseEntity<?> resetPassword(@RequestBody PasswordResetModel passwordResetModel, HttpServletRequest request){
 		logger.info("INSIDE PasswordResetController START METHOD resetPassword:");
-//		OperationStatusModel returnValue = new OperationStatusModel();
 		boolean operationResult = userService.resetPassword(passwordResetModel.getToken(),passwordResetModel.getPassword());
-//		returnValue.setOperationName(RequestOperationName.PASSWORD_RESET.name());
-//		returnValue.setOperationResult(RequestOperationStatus.ERROR.name());
 		ErrorFormInfo errorInfo = null;
 
 		if(operationResult){
 			String successMsg = Translator.toLocale("reset.password.successfully");
 			errorInfo = new ErrorFormInfo(HttpStatus.OK, true, request.getRequestURI(), successMsg, null);
 			return new ResponseEntity<>(errorInfo, HttpStatus.OK);
-//			returnValue.setOperationResult(RequestOperationStatus.SUCCESS.name());
 		}
 		return new ResponseEntity<>(errorInfo, HttpStatus.RESET_CONTENT);
 	}
-	
 	
 	@GetMapping("/test")
 	public String getTestMessage(){

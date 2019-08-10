@@ -86,25 +86,10 @@ public class CustomizedResponseEntityExceptionHandler extends ResponseEntityExce
 
 	public List<FieldErrorDTO> populateFieldErrors(List<FieldError> fieldErrorList) {
 		List<FieldErrorDTO> fieldErrors = new ArrayList<FieldErrorDTO>();
-//		StringBuilder errorMessage = new StringBuilder("");
 		for (FieldError fieldError : fieldErrorList) {
-//			errorMessage.append(fieldError.getCode()).append(".");
-//			errorMessage.append(fieldError.getObjectName()).append(".");
-//			errorMessage.append(fieldError.getField());
-
-			// String localizedErrorMsg =
-			// localizeErrorMessage(errorMessage.toString());
-
 			fieldErrors.add(new FieldErrorDTO(fieldError.getField(), fieldError.getDefaultMessage()));
-//			errorMessage.delete(0, errorMessage.capacity());
 		}
 		return fieldErrors;
 	}
-
-	// public String localizeErrorMessage(String errorCode) {
-	// Locale locale = LocaleContextHolder.getLocale();
-	// String errorMessage = messageSource.getMessage(errorCode, null, locale);
-	// return errorMessage;
-	// }
 
 }

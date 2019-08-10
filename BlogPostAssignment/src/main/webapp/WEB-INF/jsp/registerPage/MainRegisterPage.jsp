@@ -7,11 +7,6 @@
 <script
 	src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<%-- <spring:url
-	value="${pageContext.request.contextPath}/customCss/registrationPageCss.css"
-	var="registerPageCss" />
-<link href="${registerPageCss}" rel="stylesheet" /> --%>
-
 <style>
 body {
 	background-image:
@@ -101,8 +96,6 @@ body {
 										"#employeeRoles option:selected").val() ]
 
 							};
-
-							console.log(formData);
 							$
 									.ajax({
 										crossDomain : true,
@@ -116,7 +109,6 @@ body {
 											console.log(data.status);
 											if (data.status) {
 												alert(data.message);
-												loadData(currentPageNumber,pageSize);
 											}
 										},
 										error : function(e) {
